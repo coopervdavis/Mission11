@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import {Book} from "./types/Book"
 
-function BookList() {
+function BookList({selectedCategories}: {selectedCategories: string[]}) {
 
     const [books, setBooks] = useState<Book[]>([]);
 
@@ -17,7 +17,10 @@ function BookList() {
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const response = await fetch(`https://localhost:5000/api/bookstore?pageSize=${pageSize}&pageNum=${pageNum}&sortDescending=${sortDescending}`);
+
+            const categoryParams = selectedCategories.map((cat) => `category=${encodeURIComponent(cat)}`).join('&')
+
+            const response = await fetch(`https://localhost:5000/api/bookstore?pageSize=${pageSize}&pageNum=${pageNum}&sortDescending=${sortDescending}${selectedCategories.length ? `&${categoryParams}` : ''}`);
             const data = await response.json();
             setBooks(data.books);
             setTotalItems(data.totalNumBooks);
@@ -25,14 +28,13 @@ function BookList() {
         };
         fetchBooks();
     
-    }, [pageSize, pageNum, sortDescending]); // add sortDescending to the dependency array
+    }, [pageSize, pageNum, sortDescending, selectedCategories]); // add sortDescending to the dependency array
     
     
 
     return (
         <>
-        <h3>Books:</h3>
-        <br />
+
         <label>
             Sort Title By: 
             <select 
