@@ -5,7 +5,7 @@ interface FetchBooksResponse {
     totalNumBooks: number;
 }
 
-const APIURL = 'https://localhost:5000/api/bookstore'
+const APIURL = 'https://mission13backendcooper.azurewebsites.net/api/bookstore'
 
 export const fetchBooks =async (
     pageSize: number,
@@ -16,7 +16,7 @@ export const fetchBooks =async (
     try {
             const categoryParams = selectedCategories.map((cat) => `category=${encodeURIComponent(cat)}`).join('&')
 
-            const response = await fetch(`https://localhost:5000/api/bookstore?pageSize=${pageSize}&pageNum=${pageNum}&sortDescending=${sortDescending}${selectedCategories.length ? `&${categoryParams}` : ''}`);
+            const response = await fetch(`https://mission13backendcooper.azurewebsites.net/api/bookstore?pageSize=${pageSize}&pageNum=${pageNum}&sortDescending=${sortDescending}${selectedCategories.length ? `&${categoryParams}` : ''}`);
             return await response.json();
     }
     catch (error) {

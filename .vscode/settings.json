@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/c077e176-421d-43c8-8dd2-8c59a1376bf4/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/Mission13backendcooper",
+    "appService.deploySubpath": "backend/newAmazon.API/publish"
+}

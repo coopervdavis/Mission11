@@ -10,7 +10,7 @@ function Filter(
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                            const response = await fetch('https://localhost:5000/api/bookstore/getbookcategory');
+                            const response = await fetch('https://mission13backendcooper.azurewebsites.net/api/bookstore/getbookcategory');
             const data = await response.json();
 
             setCategories(data);
