@@ -1,12 +1,27 @@
+import { useState } from 'react'
 import './App.css'
-import BookList from './BookList'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import FirstPage from './pages/FirstPage'
+import BuyPage from './pages/BuyPage'
+import CartPage from './pages/CartPage'
+import { CartProvider } from './context/CartContext'
 function App() {
 
 
-  return (
-    <>
-      <BookList />
+  return (    
+  <>
+  <CartProvider>
+        <Router>
+      <Routes>
+        <Route path='/' element={<FirstPage />} />
+        <Route path='/books' element={<FirstPage />} />
+        <Route path='/buy/:title/:bookId/:bprice' element={<BuyPage />}/>
+        <Route path='/cart' element={<CartPage />}/>
+      </Routes>
+    </Router>
+  </CartProvider>
+
+
     </>
   )
 }

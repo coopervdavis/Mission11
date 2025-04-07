@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{0F110347-790E-40A9-8B94-0963B25AEC18}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{3DAA8AD2-32CF-4EE6-A647-91F4E39F7CE0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "newAmazon.API", "backend\newAmazon.API\newAmazon.API.csproj", "{A6D456A0-FAD0-4DB8-861B-177FC6592C70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "newAmazon.API", "backend\newAmazon.API\newAmazon.API.csproj", "{30EC4B5C-A46C-4A5D-8377-15706C2E8397}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,18 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A6D456A0-FAD0-4DB8-861B-177FC6592C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6D456A0-FAD0-4DB8-861B-177FC6592C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6D456A0-FAD0-4DB8-861B-177FC6592C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6D456A0-FAD0-4DB8-861B-177FC6592C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30EC4B5C-A46C-4A5D-8377-15706C2E8397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30EC4B5C-A46C-4A5D-8377-15706C2E8397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30EC4B5C-A46C-4A5D-8377-15706C2E8397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30EC4B5C-A46C-4A5D-8377-15706C2E8397}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A6D456A0-FAD0-4DB8-861B-177FC6592C70} = {0F110347-790E-40A9-8B94-0963B25AEC18}
+		{30EC4B5C-A46C-4A5D-8377-15706C2E8397} = {3DAA8AD2-32CF-4EE6-A647-91F4E39F7CE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3C47A172-0B89-4262-B25F-96AD8F85323A}
+		SolutionGuid = {7A2A65C9-FA06-49F4-970E-4CD4EAC09A17}
 	EndGlobalSection
 EndGlobal
