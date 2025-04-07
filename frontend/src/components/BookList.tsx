@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import {Book} from "../types/Book"
 import { useNavigate } from "react-router-dom";
+import { fetchBooks } from "../api/BooksApi";
 
 function BookList({selectedCategories}: {selectedCategories: string[]}) {
 
@@ -16,25 +17,36 @@ function BookList({selectedCategories}: {selectedCategories: string[]}) {
 
     const [sortDescending, setSortDescending] = useState<boolean>(false);
 
+    const [error, setError] = useState<string | null>(null);
+
+    const [loading, setLoading] = useState(true)
+
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchBooks = async () => {
-
-            const categoryParams = selectedCategories.map((cat) => `category=${encodeURIComponent(cat)}`).join('&')
-
-            const response = await fetch(`https://localhost:5000/api/bookstore?pageSize=${pageSize}&pageNum=${pageNum}&sortDescending=${sortDescending}${selectedCategories.length ? `&${categoryParams}` : ''}`);
-            const data = await response.json();
+        const loadProjects = async () => {
+        try {
+                setLoading(true);
+                const data = await fetchBooks(pageSize, pageNum, selectedCategories, sortDescending)
+            
             setBooks(data.books);
             setTotalItems(data.totalNumBooks);
             setTotalPages(Math.ceil(data.totalNumBooks / pageSize)); // Fix here
+        }
+        catch (error) {
+            setError((error as Error).message)
+
+        }
+        finally {
+            setLoading(false)
+        }
         };
-        fetchBooks();
+        loadProjects();
     
     }, [pageSize, pageNum, sortDescending, selectedCategories]); // add sortDescending to the dependency array
     
-    
-
+    if (loading) return <p>Loading....</p>
+    if (error) return <p>Error: {error}</p>
     return (
         <>
 
