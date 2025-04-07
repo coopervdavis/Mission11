@@ -64,6 +64,6 @@ export const UpdateBook = async (bookId: number, updatedBook: Book) : Promise<Bo
 };
 
 export const DeleteBook = async (bookId: number) : Promise<void> => {
-    const response = await fetch(`${APIURL}/DeleteBook/${bookId}`,
+    await fetch(`${APIURL}/DeleteBook/${bookId}`,
     {method: 'DELETE'})
 }

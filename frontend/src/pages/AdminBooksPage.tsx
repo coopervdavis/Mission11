@@ -12,11 +12,11 @@ const AdminBooksPage = () => {
 
     const [pageNum, setPageNum] = useState<number>(1);
 
-    const [totalItems, setTotalItems] = useState<number>(0);
+    const [, setTotalItems] = useState<number>(0);
 
     const [totalPages, setTotalPages] = useState<number>(0);
 
-    const [sortDescending, setSortDescending] = useState<boolean>(false);
+    const [sortDescending, ] = useState<boolean>(false);
 
     const [error, setError] = useState<string | null>(null);
 
@@ -25,8 +25,6 @@ const AdminBooksPage = () => {
     const [showForm, setShowForm] = useState(false)
 
     const [editingBook, setEditingBook] = useState<Book | null>(null);
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         const loadProjects = async () => {

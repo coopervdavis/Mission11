@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Book } from "../types/Book";
-import { AddBook, UpdateBook } from "../api/BooksApi";
+import { UpdateBook } from "../api/BooksApi";
 
 interface EditBookFormProps {
     book: Book;
@@ -42,6 +42,3 @@ const handleSubmit = async (e: React.FormEvent) => {
 
 export default EditBookForm;
 
-function updateBook(bookId: number, bookData: Book) {
-    throw new Error("Function not implemented.");
-}
