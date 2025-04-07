@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import {Book} from "./types/Book"
+import {Book} from "../types/Book"
+import { useNavigate } from "react-router-dom";
 
 function BookList({selectedCategories}: {selectedCategories: string[]}) {
 
@@ -14,6 +15,8 @@ function BookList({selectedCategories}: {selectedCategories: string[]}) {
     const [totalPages, setTotalPages] = useState<number>(0);
 
     const [sortDescending, setSortDescending] = useState<boolean>(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -51,19 +54,36 @@ function BookList({selectedCategories}: {selectedCategories: string[]}) {
         </label>
         <br />
         {books.map((b) =>
-            <div id="bookCard" className="card" key={b.bookId}>
-                <h3 className="card-title">{b.title}</h3>
-                <div className="card-body">
-                <ul className="list-unstyled">
-                    <li><strong>Author:</strong> {b.author}</li>
-                    <li><strong>Publisher:</strong> {b.publisher}</li>
-                    <li><strong>ISBN:</strong> {b.isbn}</li>
-                    <li><strong>Classification/Category:</strong> {b.category}</li>
-                    <li><strong>Number of Pages:</strong> {b.pageCount}</li>
-                    <li><strong>Price:</strong> {b.price}</li>
-                </ul>
-                </div>
-            </div>
+            <div
+  id="bookCard"
+  className="card mb-4 shadow-sm h-100"
+  key={b.bookId}
+  style={{ borderRadius: '1rem' }}
+>
+  <div className="card-body text-center d-flex flex-column justify-content-between">
+    {/* Title */}
+    <h4 className="card-title fw-bold mb-3">{b.title}</h4>
+
+    {/* Book Info */}
+    <ul className="list-unstyled text-start mb-4">
+      <li><strong>Author:</strong> {b.author}</li>
+      <li><strong>Publisher:</strong> {b.publisher}</li>
+      <li><strong>ISBN:</strong> {b.isbn}</li>
+      <li><strong>Classification/Category:</strong> {b.category}</li>
+      <li><strong>Number of Pages:</strong> {b.pageCount}</li>
+      <li><strong>Price:</strong> ${b.price.toFixed(2)}</li>
+    </ul>
+
+    {/* Buy Button */}
+    <button
+      className="btn btn-primary mt-auto"
+      onClick={() => navigate(`/buy/${b.title}/${b.bookId}/${b.price}`)}
+    >
+      Buy
+    </button>
+  </div>
+</div>
+
     
         )}
 
